@@ -56,9 +56,10 @@
   .menu-btn span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;border-radius:2px}
 
   /* hero */
-  .hero{position:relative;color:#fff;padding:0;overflow:hidden;background:linear-gradient(180deg,#f7b27d 0%,#f0937a 18%,#3a8fa0 46%,#0b5d6b 70%,#063f4a 100%)}
-  .hero-art{position:absolute;inset:0;width:100%;height:100%}
-  .hero-inner{position:relative;padding:120px 0 150px;max-width:720px}
+  .hero{position:relative;color:#fff;padding:0;overflow:hidden;background:var(--sea-deep)}
+  .hero-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%}
+  .hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,40,48,.82) 0%,rgba(6,40,48,.55) 45%,rgba(6,40,48,.05) 80%),linear-gradient(0deg,rgba(6,40,48,.45),transparent 40%)}
+  .hero-inner{position:relative;padding:140px 0 170px;max-width:680px}
   .hero h1{font-size:clamp(2.6rem,6.4vw,4.8rem);font-weight:700;text-shadow:0 2px 24px rgba(6,63,74,.35)}
   .hero h1 em{font-style:italic;color:var(--sand)}
   .hero p{font-size:1.18rem;max-width:40ch;opacity:.95}
@@ -79,6 +80,10 @@
   .trip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
   .trip{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
   .trip:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .trip-img{margin:-26px -26px 20px;height:170px;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0}
+  .trip-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .trip:hover .trip-img img{transform:scale(1.05)}
+  .trip{overflow:hidden}
   .trip .dur{display:inline-block;align-self:flex-start;background:var(--shallow);color:var(--sea-deep);font-weight:700;font-size:.78rem;padding:4px 12px;border-radius:999px;margin-bottom:16px}
   .trip.feature{background:var(--sea);color:#fff;border-color:var(--sea)}
   .trip.feature .dur{background:var(--coral);color:#fff}
@@ -99,7 +104,8 @@
     display:flex;align-items:flex-end;min-height:220px}
   .ph.sand{background:repeating-linear-gradient(135deg,rgba(255,255,255,.25) 0 12px,transparent 12px 24px),linear-gradient(160deg,var(--sand-2),#d9bf8f)}
   .ph.sunset{background:repeating-linear-gradient(135deg,rgba(255,255,255,.1) 0 12px,transparent 12px 24px),linear-gradient(170deg,#f7b27d,#e8744f 55%,#8a3f4f)}
-  .ph-label{margin:14px;background:rgba(16,38,43,.72);color:#fff;font-size:.78rem;font-weight:600;padding:6px 12px;border-radius:999px;display:inline-flex;align-items:center;gap:6px}
+  .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .ph-label{position:relative;margin:14px;background:rgba(16,38,43,.72);color:#fff;font-size:.78rem;font-weight:600;padding:6px 12px;border-radius:999px;display:inline-flex;align-items:center;gap:6px}
 
   /* captains */
   .captains{background:var(--sand)}
@@ -242,7 +248,7 @@
 </head>
 <body>
 
-<div class="preview-bar"><b>Preview concept</b> for Sandbar Somewhere Charter · photos are placeholders · booking is a demo</div>
+<div class="preview-bar"><b>Preview concept</b> for Sandbar Somewhere Charter · stock photos stand in for your own · booking is a demo</div>
 
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
@@ -272,35 +278,8 @@
 
 <!-- HERO -->
 <section class="hero">
-  <svg class="hero-art" viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-    <defs>
-      <radialGradient id="sun" cx="50%" cy="50%" r="50%">
-        <stop offset="0" stop-color="#fff3d6"/><stop offset=".5" stop-color="#ffd29a"/><stop offset="1" stop-color="#ffd29a" stop-opacity="0"/>
-      </radialGradient>
-      <linearGradient id="sandg" x1="0" x2="0" y1="0" y2="1">
-        <stop offset="0" stop-color="#f6e2bd"/><stop offset="1" stop-color="#d9bb86"/>
-      </linearGradient>
-    </defs>
-    <circle cx="1080" cy="250" r="190" fill="url(#sun)"/>
-    <circle cx="1080" cy="250" r="70" fill="#fff0d0" opacity=".9"/>
-    <path d="M0 330 Q360 310 720 332 T1440 325 V760 H0Z" fill="#2c8c9b" opacity=".55"/>
-    <g fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="2" stroke-linecap="round">
-      <path d="M980 360 h200"/><path d="M1010 385 h140"/><path d="M1040 408 h80"/>
-    </g>
-    <ellipse cx="1060" cy="560" rx="420" ry="46" fill="#9fe0d6" opacity=".55"/>
-    <ellipse cx="1060" cy="556" rx="300" ry="26" fill="url(#sandg)"/>
-    <!-- mangrove island -->
-    <path d="M140 338 q40-46 90-38 q30-30 70-10 q40-18 70 12 q30 4 40 36Z" fill="#1f5d4a" opacity=".85"/>
-    <!-- skiff -->
-    <g transform="translate(900 520)">
-      <path d="M0 22 L150 22 L168 6 L10 6 Z" fill="#fffdf8"/>
-      <path d="M4 22 L150 22 L145 30 L14 30Z" fill="#0b5d6b"/>
-      <rect x="62" y="-14" width="26" height="20" rx="3" fill="#e9eef0"/>
-      <path d="M50 -28 h56 v4 h-56z" fill="#e8744f"/>
-      <path d="M56 -24 v18 M100 -24 v18" stroke="#fffdf8" stroke-width="2"/>
-    </g>
-    <path d="M0 640 Q360 610 720 640 T1440 632 V760 H0Z" fill="#063f4a" opacity=".6"/>
-  </svg>
+  <img class="hero-art" src="https://images.unsplash.com/photo-1773904595102-cd8712aafcde?auto=format&fit=crop&w=2000&q=75" alt="Center console boat anchored off a sandbar in clear turquoise water">
+  <div class="hero-shade"></div>
   <div class="wrap">
     <div class="hero-inner">
       <span class="hero-badge"><span class="stars">★★★★★</span> 5.0 from 172 reviews</span>
@@ -338,6 +317,7 @@
 
     <div class="trip-grid">
       <article class="trip">
+        <div class="trip-img"><img src="https://images.unsplash.com/photo-1604064412467-af16406b5ba5?auto=format&fit=crop&w=700&h=440&q=75" alt="Boat silhouetted at sunset" loading="lazy"></div>
         <span class="dur">3 hours</span>
         <h3>Sandbar or Sunset Cruise</h3>
         <p>Wade the shallows at a Keys sandbar, or cruise out to watch the sun go down over the water.</p>
@@ -346,6 +326,7 @@
         <a href="#book" class="btn btn-outline" data-trip="cruise3">Book this trip</a>
       </article>
       <article class="trip">
+        <div class="trip-img"><img src="https://images.unsplash.com/photo-1578005983174-90424f1b81e7?auto=format&fit=crop&w=700&h=440&q=75" alt="Anglers fishing off the back of a boat" loading="lazy"></div>
         <span class="dur">4 hours</span>
         <h3>Half-Day Adventure</h3>
         <p>Fishing charter, eco-tour, sandbar, island hopping, or a combination. You choose.</p>
@@ -354,6 +335,7 @@
         <a href="#book" class="btn btn-outline" data-trip="combo4">Book this trip</a>
       </article>
       <article class="trip feature">
+        <div class="trip-img"><img src="https://images.unsplash.com/photo-1760443996524-b2b90f060fca?auto=format&fit=crop&w=700&h=440&q=75" alt="Sandbar with clear shallow water" loading="lazy"></div>
         <span class="dur">6 hours · Popular</span>
         <h3>Extended Adventure</h3>
         <p>Enough time to fish the reef and the backcountry, then finish at the sandbar.</p>
@@ -362,6 +344,7 @@
         <a href="#book" class="btn btn-coral" data-trip="combo6">Book this trip</a>
       </article>
       <article class="trip">
+        <div class="trip-img"><img src="https://images.unsplash.com/photo-1760432787047-7787f5f2638e?auto=format&fit=crop&w=700&h=440&q=75" alt="Aerial view of a boat on turquoise water" loading="lazy"></div>
         <span class="dur">8 hours</span>
         <h3>Full-Day Adventure</h3>
         <p>A full day of fishing, eco-touring, sandbar time and island hopping around the Lower Keys.</p>
@@ -370,6 +353,7 @@
         <a href="#book" class="btn btn-outline" data-trip="combo8">Book this trip</a>
       </article>
       <article class="trip">
+        <div class="trip-img"><img src="https://images.unsplash.com/photo-1761197379839-b5759e0146a0?auto=format&fit=crop&w=700&h=440&q=75" alt="Fishing rod at sunset over the water" loading="lazy"></div>
         <span class="dur">4 hours · Evenings</span>
         <h3>Bridge Tarpon Fishing</h3>
         <p>Chase the Silver King under the bridges. Available seasonally, April through December, evenings only.</p>
@@ -391,9 +375,9 @@
 <section class="captains" id="captains">
   <div class="wrap split">
     <div class="photo-stack">
-      <div class="ph"><span class="ph-label">📷 Hoyt &amp; Priscilla, your photo here</span></div>
-      <div class="ph sunset"><span class="ph-label">📷 Sunset</span></div>
-      <div class="ph sand"><span class="ph-label">📷 A great catch</span></div>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1571762119978-d105a36ef68d?auto=format&fit=crop&w=900&q=75" alt="Two people wading in clear shallow water" loading="lazy"><span class="ph-label">Sample photo · swap in Hoyt &amp; Priscilla</span></div>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1722547083154-a6a3038d43b3?auto=format&fit=crop&w=600&q=75" alt="Boat crossing the water at sunset" loading="lazy"><span class="ph-label">Sample photo</span></div>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1567517412043-7b2c07aa08f4?auto=format&fit=crop&w=600&q=75" alt="A freshly caught fish held over the water" loading="lazy"><span class="ph-label">Sample photo</span></div>
     </div>
     <div>
       <span class="eyebrow">Meet your captains</span>
@@ -440,10 +424,10 @@
       </ul>
     </div>
     <div class="boat-photos">
-      <div class="ph"><span class="ph-label">📷 The Sandhopper, your photo here</span></div>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1786569700376-7e4cceb1917b?auto=format&fit=crop&w=1200&q=75" alt="Small white motorboat running across turquoise water" loading="lazy"><span class="ph-label">Sample photo · swap in the Sandhopper</span></div>
       <div class="row">
-        <div class="ph sand"><span class="ph-label">📷 Sandbar</span></div>
-        <div class="ph"><span class="ph-label">📷 Front deck</span></div>
+        <div class="ph"><img src="https://images.unsplash.com/photo-1760443996524-b2b90f060fca?auto=format&fit=crop&w=600&q=75" alt="A sandbar seen from the bow of a boat" loading="lazy"><span class="ph-label">Sample photo</span></div>
+        <div class="ph"><img src="https://images.unsplash.com/photo-1643398090340-b2bc623e51f1?auto=format&fit=crop&w=600&q=75" alt="Mangrove shoreline on calm water" loading="lazy"><span class="ph-label">Sample photo</span></div>
       </div>
     </div>
   </div>
@@ -674,7 +658,7 @@
     </div>
     <div class="copy">
       <span>© 2026 Sandbar Somewhere Charter · Summerland Key, Florida</span>
-      <span>USCG licensed captains · Locally owned &amp; operated</span>
+      <span>USCG licensed captains · Locally owned &amp; operated · Sample photos via Unsplash</span>
     </div>
   </div>
 </footer>
