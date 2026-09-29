@@ -164,26 +164,30 @@
   .why-direct .n{flex:none;width:32px;height:32px;border-radius:50%;background:var(--coral);color:#fff;font-weight:700;display:grid;place-items:center}
   .why-direct b{display:block}
   .why-direct span{color:var(--muted);font-size:.95rem}
-  .form-card{background:#fff;border-radius:24px;box-shadow:var(--shadow);border:1px solid var(--line);padding:32px}
-  .form-card h3{font-size:1.5rem}
-  .field{margin-bottom:16px}
-  .field label{display:block;font-weight:700;font-size:.86rem;margin-bottom:6px}
-  .field input,.field select,.field textarea{width:100%;font:inherit;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--white);color:var(--ink)}
+  .form-card{background:#fff;border-radius:24px;box-shadow:var(--shadow);border:1px solid var(--line);padding:20px 26px;scroll-margin-top:78px}
+  .form-card h3{font-size:1.35rem;margin-bottom:.45em}
+  .field{margin-bottom:12px}
+  .field label{display:block;font-weight:700;font-size:.84rem;margin-bottom:4px}
+  .field input,.field select,.field textarea{width:100%;font:inherit;padding:9px 12px;height:42px;border-radius:10px;border:1.5px solid var(--line);background:var(--white);color:var(--ink)}
   .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--lagoon);box-shadow:0 0 0 3px rgba(39,163,163,.18)}
-  .field .hint{font-size:.8rem;color:var(--muted);margin-top:5px}
+  .field .hint{font-size:.76rem;color:var(--muted);margin-top:3px}
   .field .err{font-size:.8rem;color:#b3261e;margin-top:5px;display:none}
-  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  .stepper{display:flex;align-items:center;border:1.5px solid var(--line);border-radius:12px;overflow:hidden;background:var(--white)}
-  .stepper button{width:46px;height:46px;border:0;background:transparent;font-size:1.3rem;cursor:pointer;color:var(--sea)}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .row-trip{grid-template-columns:repeat(auto-fit,minmax(0,1fr))}
+  .lbl-hint{font-weight:500;color:var(--muted)}
+  .field input,.field select{min-width:0}
+  .field select{padding-top:0;padding-bottom:0;line-height:normal}
+  .stepper{display:flex;align-items:center;height:42px;border:1.5px solid var(--line);border-radius:10px;overflow:hidden;background:var(--white)}
+  .stepper button{width:42px;height:40px;border:0;background:transparent;font-size:1.3rem;cursor:pointer;color:var(--sea)}
   .stepper button:disabled{color:#c4c4c4;cursor:default}
   .stepper output{flex:1;text-align:center;font-weight:700}
-  .summary{background:var(--sand);border-radius:14px;padding:18px 20px;margin:20px 0}
-  .summary .line{display:flex;justify-content:space-between;padding:4px 0;font-size:.95rem}
-  .summary .line.total{border-top:1px solid var(--line);margin-top:8px;padding-top:12px;font-weight:700;font-size:1.05rem}
+  .summary{background:var(--sand);border-radius:14px;padding:12px 18px;margin:14px 0}
+  .summary .line{display:flex;justify-content:space-between;padding:2px 0;font-size:.92rem}
+  .summary .line.total{border-top:1px solid var(--line);margin-top:6px;padding-top:8px;font-weight:700;font-size:1rem}
   .summary .line.total b{color:var(--coral-dk);font-size:1.3rem;font-family:Fraunces,serif}
-  .summary small{display:block;color:var(--muted);margin-top:8px;font-size:.8rem}
-  .form-card .btn{width:100%;justify-content:center;font-size:1.05rem;padding:16px}
-  .secure{display:flex;gap:8px;justify-content:center;align-items:center;color:var(--muted);font-size:.8rem;margin-top:12px}
+  .summary small{display:block;color:var(--muted);margin-top:6px;font-size:.76rem;line-height:1.4}
+  .form-card .btn{width:100%;justify-content:center;font-size:1.02rem;padding:13px}
+  .secure{display:flex;gap:8px;justify-content:center;align-items:center;color:var(--muted);font-size:.78rem;margin-top:8px}
 
   /* policy / faq */
   .faq-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:60px}
@@ -232,6 +236,8 @@
     .nav-links a{padding:12px 0}
     .nav-links .btn{justify-content:center;margin-top:8px}
     .menu-btn{display:block}
+    .mobile-cta{transition:opacity .2s,transform .2s}
+    .mobile-cta.hide{opacity:0;transform:translateY(20px);pointer-events:none}
     .mobile-cta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;gap:10px}
     .mobile-cta a{flex:1;justify-content:center;padding:14px}
     .mobile-cta .call{background:#fff;color:var(--sea);border:1.5px solid var(--sea)}
@@ -239,7 +245,11 @@
   }
   @media (max-width:560px){
     .hero-inner{padding:80px 0 120px}
-    .checklist,.inc-card ul,.row2{grid-template-columns:1fr}
+    .checklist,.inc-card ul,.row-trip{grid-template-columns:1fr}
+    .form-card{scroll-margin-top:72px;padding:16px 18px}
+    .form-card .field{margin-bottom:9px}
+    .field input,.field select,.stepper{height:40px}
+    .summary{margin:10px 0}
     .features{columns:1}
     .specs{grid-template-columns:repeat(2,1fr)}
     .photo-stack{grid-template-rows:160px 160px}
@@ -270,7 +280,7 @@
       <a href="#boat">The Boat</a>
       <a href="#reviews">Reviews</a>
       <a href="#faq">FAQ</a>
-      <a href="#book" class="btn btn-coral">Book a Trip</a>
+      <a href="#bookForm" class="btn btn-coral">Book a Trip</a>
     </nav>
   </div>
 </header>
@@ -287,7 +297,7 @@
       <h1>Your day on the water in the <em>Lower Keys</em></h1>
       <p>Reef &amp; backcountry fishing, eco-tours, sandbar trips, island hopping and sunset cruises with Captains Hoyt &amp; Priscilla Watkins, out of Summerland Key.</p>
       <div class="hero-ctas">
-        <a href="#book" class="btn btn-coral">Book your trip →</a>
+        <a href="#bookForm" class="btn btn-coral">Book your trip →</a>
         <a href="#trips" class="btn btn-ghost">See trips &amp; prices</a>
       </div>
     </div>
@@ -313,7 +323,7 @@
         <h2>Pick your kind of day</h2>
         <p class="lead">Every trip is private, just your group and your captain. Mix fishing, a sandbar stop and some island hopping however you like.</p>
       </div>
-      <a href="#book" class="btn btn-outline">Check a date</a>
+      <a href="#bookForm" class="btn btn-outline">Check a date</a>
     </div>
 
     <div class="trip-grid">
@@ -324,7 +334,7 @@
         <p>Wade the shallows at a Keys sandbar, or cruise out to watch the sun go down over the water.</p>
         <div class="price">$500</div>
         <div class="trip-meta">Up to 6 guests</div>
-        <a href="#book" class="btn btn-outline" data-trip="cruise3">Book this trip</a>
+        <a href="#bookForm" class="btn btn-outline" data-trip="cruise3">Book this trip</a>
       </article>
       <article class="trip">
         <div class="trip-img"><img src="https://images.unsplash.com/photo-1578005983174-90424f1b81e7?auto=format&fit=crop&w=700&h=440&q=75" alt="Anglers fishing off the back of a boat" loading="lazy"></div>
@@ -333,7 +343,7 @@
         <p>Fishing charter, eco-tour, sandbar, island hopping, or a combination. You choose.</p>
         <div class="price">$500</div>
         <div class="trip-meta">Up to 4 fishing · 6 non-fishing</div>
-        <a href="#book" class="btn btn-outline" data-trip="combo4">Book this trip</a>
+        <a href="#bookForm" class="btn btn-outline" data-trip="combo4">Book this trip</a>
       </article>
       <article class="trip feature">
         <div class="trip-img"><img src="https://images.unsplash.com/photo-1760443996524-b2b90f060fca?auto=format&fit=crop&w=700&h=440&q=75" alt="Sandbar with clear shallow water" loading="lazy"></div>
@@ -342,7 +352,7 @@
         <p>Enough time to fish the reef and the backcountry, then finish at the sandbar.</p>
         <div class="price">$700</div>
         <div class="trip-meta">Up to 4 fishing · 6 non-fishing</div>
-        <a href="#book" class="btn btn-coral" data-trip="combo6">Book this trip</a>
+        <a href="#bookForm" class="btn btn-coral" data-trip="combo6">Book this trip</a>
       </article>
       <article class="trip">
         <div class="trip-img"><img src="https://images.unsplash.com/photo-1760432787047-7787f5f2638e?auto=format&fit=crop&w=700&h=440&q=75" alt="Aerial view of a boat on turquoise water" loading="lazy"></div>
@@ -351,7 +361,7 @@
         <p>A full day of fishing, eco-touring, sandbar time and island hopping around the Lower Keys.</p>
         <div class="price">$900</div>
         <div class="trip-meta">Up to 4 fishing · 6 non-fishing</div>
-        <a href="#book" class="btn btn-outline" data-trip="combo8">Book this trip</a>
+        <a href="#bookForm" class="btn btn-outline" data-trip="combo8">Book this trip</a>
       </article>
       <article class="trip">
         <div class="trip-img"><img src="https://images.unsplash.com/photo-1761197379839-b5759e0146a0?auto=format&fit=crop&w=700&h=440&q=75" alt="Fishing rod at sunset over the water" loading="lazy"></div>
@@ -360,7 +370,7 @@
         <p>Chase the Silver King under the bridges. Available seasonally, April through December, evenings only.</p>
         <div class="price">$500</div>
         <div class="trip-meta">Up to 4 guests · Apr–Dec</div>
-        <a href="#book" class="btn btn-outline" data-trip="tarpon">Book this trip</a>
+        <a href="#bookForm" class="btn btn-outline" data-trip="tarpon">Book this trip</a>
       </article>
     </div>
 
@@ -389,25 +399,27 @@
 
     <form class="form-card" id="bookForm" novalidate>
       <h3>Book your trip</h3>
-      <div class="field">
-        <label for="trip">Trip</label>
-        <select id="trip" required>
-          <option value="cruise3">Sandbar or Sunset Cruise · 3 hrs · $500</option>
-          <option value="combo4" selected>Half-Day Adventure · 4 hrs · $500</option>
-          <option value="combo6">Extended Adventure · 6 hrs · $700</option>
-          <option value="combo8">Full-Day Adventure · 8 hrs · $900</option>
-          <option value="tarpon">Bridge Tarpon Fishing · 4 hrs, evening · $500</option>
-        </select>
-      </div>
-      <div class="field" id="styleField">
-        <label for="style">What would you like to do?</label>
-        <select id="style">
-          <option value="fishing">Fishing charter</option>
-          <option value="eco">Eco-tour / birdwatching</option>
-          <option value="sandbar">Sandbar</option>
-          <option value="island">Island hopping</option>
-          <option value="combo">A combination</option>
-        </select>
+      <div class="row2 row-trip">
+        <div class="field">
+          <label for="trip">Trip</label>
+          <select id="trip" required>
+            <option value="cruise3">Sandbar / Sunset (3 hrs) · $500</option>
+            <option value="combo4" selected>Half-Day (4 hrs) · $500</option>
+            <option value="combo6">Extended (6 hrs) · $700</option>
+            <option value="combo8">Full-Day (8 hrs) · $900</option>
+            <option value="tarpon">Bridge Tarpon (4 hrs, evening) · $500</option>
+          </select>
+        </div>
+        <div class="field" id="styleField">
+          <label for="style">What would you like to do?</label>
+          <select id="style">
+            <option value="fishing">Fishing charter</option>
+            <option value="eco">Eco-tour / birdwatching</option>
+            <option value="sandbar">Sandbar</option>
+            <option value="island">Island hopping</option>
+            <option value="combo">A combination</option>
+          </select>
+        </div>
       </div>
       <div class="row2">
         <div class="field">
@@ -416,18 +428,23 @@
           <div class="err" id="dateErr"></div>
         </div>
         <div class="field">
-          <label>Guests</label>
+          <label>Guests <span class="lbl-hint" id="guestHint">· max 4</span></label>
           <div class="stepper">
             <button type="button" id="minus" aria-label="Fewer guests">−</button>
             <output id="guests" aria-live="polite">2</output>
             <button type="button" id="plus" aria-label="More guests">+</button>
           </div>
-          <div class="hint" id="guestHint">Max 4 guests for fishing</div>
         </div>
       </div>
-      <div class="field">
-        <label for="name">Your name</label>
-        <input id="name" autocomplete="name" required>
+      <div class="row2">
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input id="phone" type="tel" autocomplete="tel" required>
+        </div>
       </div>
       <div class="row2">
         <div class="field">
@@ -435,24 +452,19 @@
           <input id="email" type="email" autocomplete="email" required>
         </div>
         <div class="field">
-          <label for="phone">Phone</label>
-          <input id="phone" type="tel" autocomplete="tel" required>
+          <label for="notes">Notes <span class="lbl-hint">(optional)</span></label>
+          <input id="notes" placeholder="Kids' ages…">
         </div>
-      </div>
-      <div class="field">
-        <label for="notes">Anything we should know? <span style="font-weight:500;color:var(--muted)">(optional)</span></label>
-        <textarea id="notes" rows="2" placeholder="Kids' ages, fish you're hoping for, special occasion…"></textarea>
       </div>
 
       <div class="summary">
         <div class="line"><span id="sumTrip">Half-Day Adventure (4 hrs)</span><span id="sumPrice">$500</span></div>
-        <div class="line"><span>Balance due on trip day</span><span id="sumBalance">$400</span></div>
         <div class="line total"><span>Deposit due today</span><b>$100</b></div>
-        <small>20% gratuity is customary and appreciated, not included. Free cancellation more than 72 hours before your trip.</small>
+        <small><span id="sumBalance">$400</span> balance on the day · gratuity not included · free cancellation 72+ hrs out</small>
       </div>
 
       <button class="btn btn-coral" type="submit">Pay $100 deposit &amp; book →</button>
-      <div class="secure">🔒 Secure card checkout · paid directly to Sandbar Somewhere</div>
+      <div class="secure">🔒 Secure checkout · paid directly to Sandbar Somewhere</div>
     </form>
   </div>
 </section>
@@ -641,7 +653,7 @@
     <div class="foot-grid">
       <div>
         <div class="foot-cta">Ready to find your sandbar somewhere?</div>
-        <a href="#book" class="btn btn-coral">Book your trip →</a>
+        <a href="#bookForm" class="btn btn-coral">Book your trip →</a>
       </div>
       <div>
         <h3>Contact</h3>
@@ -666,7 +678,7 @@
 
 <div class="mobile-cta">
   <a href="tel:+13058508898" class="btn call">📞 Call</a>
-  <a href="#book" class="btn btn-coral">Book a Trip</a>
+  <a href="#bookForm" class="btn btn-coral">Book a Trip</a>
 </div>
 
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
@@ -719,7 +731,7 @@
     $('guests').textContent = guests;
     $('minus').disabled = guests <= 1;
     $('plus').disabled = guests >= max;
-    $('guestHint').textContent = max === 4 ? 'Max 4 guests when fishing' : 'Max 6 guests';
+    $('guestHint').textContent = max === 4 ? '· max 4' : '· max 6';
     $('sumTrip').textContent = `${trip.name} (${trip.hrs} hrs)`;
     $('sumPrice').textContent = '$' + trip.price;
     $('sumBalance').textContent = '$' + (trip.price - 100);
@@ -756,6 +768,8 @@
   });
   $('modalClose').addEventListener('click',()=>$('modal').classList.remove('open'));
   $('modal').addEventListener('click',e=>{ if(e.target.id==='modal') $('modal').classList.remove('open'); });
+  // hide the phone call/book bar while the booking form is on screen
+  new IntersectionObserver(([e])=>document.querySelector('.mobile-cta').classList.toggle('hide',e.isIntersecting),{threshold:0.1}).observe($('bookForm'));
   update();
 </script>
 </body>
