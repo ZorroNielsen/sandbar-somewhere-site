@@ -157,7 +157,7 @@
   .review footer b{color:var(--ink);display:block}
 
   /* booking */
-  .book{background:linear-gradient(180deg,var(--sand) 0%,var(--white) 100%)}
+  .book{background:linear-gradient(180deg,var(--white) 0%,var(--sand) 100%);padding-top:40px}
   .book-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:start}
   .why-direct{list-style:none;padding:0;margin:26px 0}
   .why-direct li{display:flex;gap:14px;margin-bottom:18px}
@@ -374,6 +374,91 @@
   </div>
 </section>
 
+<!-- BOOK -->
+<section class="book" id="book">
+  <div class="wrap book-grid">
+    <div>
+      <span class="eyebrow">Book direct</span>
+      <h2>Reserve your date in two minutes</h2>
+      <p class="lead">Pick your trip and date, then pay the $100 deposit online. Your booking goes straight to Captain Hoyt, with no middleman.</p>
+      <ul class="why-direct">
+        <li><span class="n">1</span><div><b>Choose your trip &amp; date</b><span>See your price right away. No quotes, no waiting.</span></div></li>
+        <li><span class="n">2</span><div><b>Pay the $100 deposit</b><span>Secure card checkout. The rest is due on the day of your trip.</span></div></li>
+        <li><span class="n">3</span><div><b>Hoyt confirms the details</b><span>He'll reach out with your pick-up location and anything else you need to know.</span></div></li>
+      </ul>
+      <p style="color:var(--muted)">Rather talk it through? Call or text <a href="tel:+13058508898"><b>(305) 850-8898</b></a> or email <a href="mailto:SandbarSomewhereCharter@gmail.com">SandbarSomewhereCharter@gmail.com</a>.</p>
+    </div>
+
+    <form class="form-card" id="bookForm" novalidate>
+      <h3>Book your trip</h3>
+      <div class="field">
+        <label for="trip">Trip</label>
+        <select id="trip" required>
+          <option value="cruise3">Sandbar or Sunset Cruise · 3 hrs · $500</option>
+          <option value="combo4" selected>Half-Day Adventure · 4 hrs · $500</option>
+          <option value="combo6">Extended Adventure · 6 hrs · $700</option>
+          <option value="combo8">Full-Day Adventure · 8 hrs · $900</option>
+          <option value="tarpon">Bridge Tarpon Fishing · 4 hrs, evening · $500</option>
+        </select>
+      </div>
+      <div class="field" id="styleField">
+        <label for="style">What would you like to do?</label>
+        <select id="style">
+          <option value="fishing">Fishing charter</option>
+          <option value="eco">Eco-tour / birdwatching</option>
+          <option value="sandbar">Sandbar</option>
+          <option value="island">Island hopping</option>
+          <option value="combo">A combination</option>
+        </select>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label for="date">Date</label>
+          <input type="date" id="date" required>
+          <div class="err" id="dateErr"></div>
+        </div>
+        <div class="field">
+          <label>Guests</label>
+          <div class="stepper">
+            <button type="button" id="minus" aria-label="Fewer guests">−</button>
+            <output id="guests" aria-live="polite">2</output>
+            <button type="button" id="plus" aria-label="More guests">+</button>
+          </div>
+          <div class="hint" id="guestHint">Max 4 guests for fishing</div>
+        </div>
+      </div>
+      <div class="field">
+        <label for="name">Your name</label>
+        <input id="name" autocomplete="name" required>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input id="phone" type="tel" autocomplete="tel" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="notes">Anything we should know? <span style="font-weight:500;color:var(--muted)">(optional)</span></label>
+        <textarea id="notes" rows="2" placeholder="Kids' ages, fish you're hoping for, special occasion…"></textarea>
+      </div>
+
+      <div class="summary">
+        <div class="line"><span id="sumTrip">Half-Day Adventure (4 hrs)</span><span id="sumPrice">$500</span></div>
+        <div class="line"><span>Balance due on trip day</span><span id="sumBalance">$400</span></div>
+        <div class="line total"><span>Deposit due today</span><b>$100</b></div>
+        <small>20% gratuity is customary and appreciated, not included. Free cancellation more than 72 hours before your trip.</small>
+      </div>
+
+      <button class="btn btn-coral" type="submit">Pay $100 deposit &amp; book →</button>
+      <div class="secure">🔒 Secure card checkout · paid directly to Sandbar Somewhere</div>
+    </form>
+  </div>
+</section>
+
 <!-- CAPTAINS -->
 <section class="captains" id="captains">
   <div class="wrap split">
@@ -498,91 +583,6 @@
         <footer><span class="avatar">P</span><div><b>Peter</b>Georgia · 4-hour trip, Jun 2026</div></footer>
       </article>
     </div>
-  </div>
-</section>
-
-<!-- BOOK -->
-<section class="book" id="book">
-  <div class="wrap book-grid">
-    <div>
-      <span class="eyebrow">Book direct</span>
-      <h2>Reserve your date in two minutes</h2>
-      <p class="lead">Pick your trip and date, then pay the $100 deposit online. Your booking goes straight to Captain Hoyt, with no middleman.</p>
-      <ul class="why-direct">
-        <li><span class="n">1</span><div><b>Choose your trip &amp; date</b><span>See your price right away. No quotes, no waiting.</span></div></li>
-        <li><span class="n">2</span><div><b>Pay the $100 deposit</b><span>Secure card checkout. The rest is due on the day of your trip.</span></div></li>
-        <li><span class="n">3</span><div><b>Hoyt confirms the details</b><span>He'll reach out with your pick-up location and anything else you need to know.</span></div></li>
-      </ul>
-      <p style="color:var(--muted)">Rather talk it through? Call or text <a href="tel:+13058508898"><b>(305) 850-8898</b></a> or email <a href="mailto:SandbarSomewhereCharter@gmail.com">SandbarSomewhereCharter@gmail.com</a>.</p>
-    </div>
-
-    <form class="form-card" id="bookForm" novalidate>
-      <h3>Book your trip</h3>
-      <div class="field">
-        <label for="trip">Trip</label>
-        <select id="trip" required>
-          <option value="cruise3">Sandbar or Sunset Cruise · 3 hrs · $500</option>
-          <option value="combo4" selected>Half-Day Adventure · 4 hrs · $500</option>
-          <option value="combo6">Extended Adventure · 6 hrs · $700</option>
-          <option value="combo8">Full-Day Adventure · 8 hrs · $900</option>
-          <option value="tarpon">Bridge Tarpon Fishing · 4 hrs, evening · $500</option>
-        </select>
-      </div>
-      <div class="field" id="styleField">
-        <label for="style">What would you like to do?</label>
-        <select id="style">
-          <option value="fishing">Fishing charter</option>
-          <option value="eco">Eco-tour / birdwatching</option>
-          <option value="sandbar">Sandbar</option>
-          <option value="island">Island hopping</option>
-          <option value="combo">A combination</option>
-        </select>
-      </div>
-      <div class="row2">
-        <div class="field">
-          <label for="date">Date</label>
-          <input type="date" id="date" required>
-          <div class="err" id="dateErr"></div>
-        </div>
-        <div class="field">
-          <label>Guests</label>
-          <div class="stepper">
-            <button type="button" id="minus" aria-label="Fewer guests">−</button>
-            <output id="guests" aria-live="polite">2</output>
-            <button type="button" id="plus" aria-label="More guests">+</button>
-          </div>
-          <div class="hint" id="guestHint">Max 4 guests for fishing</div>
-        </div>
-      </div>
-      <div class="field">
-        <label for="name">Your name</label>
-        <input id="name" autocomplete="name" required>
-      </div>
-      <div class="row2">
-        <div class="field">
-          <label for="email">Email</label>
-          <input id="email" type="email" autocomplete="email" required>
-        </div>
-        <div class="field">
-          <label for="phone">Phone</label>
-          <input id="phone" type="tel" autocomplete="tel" required>
-        </div>
-      </div>
-      <div class="field">
-        <label for="notes">Anything we should know? <span style="font-weight:500;color:var(--muted)">(optional)</span></label>
-        <textarea id="notes" rows="2" placeholder="Kids' ages, fish you're hoping for, special occasion…"></textarea>
-      </div>
-
-      <div class="summary">
-        <div class="line"><span id="sumTrip">Half-Day Adventure (4 hrs)</span><span id="sumPrice">$500</span></div>
-        <div class="line"><span>Balance due on trip day</span><span id="sumBalance">$400</span></div>
-        <div class="line total"><span>Deposit due today</span><b>$100</b></div>
-        <small>20% gratuity is customary and appreciated, not included. Free cancellation more than 72 hours before your trip.</small>
-      </div>
-
-      <button class="btn btn-coral" type="submit">Pay $100 deposit &amp; book →</button>
-      <div class="secure">🔒 Secure card checkout · paid directly to Sandbar Somewhere</div>
-    </form>
   </div>
 </section>
 
